@@ -4,13 +4,11 @@ This tool plots chess evaluation (centipawns) and logPositions analyzed (logNode
 # Setup
 1. Install Python at https://www.python.org/downloads/.
 2. Download repository.
-3. Open file *main.py*.
-4. In line 13, enter directory of Stockfish.
-5. Open Terminal in repository folder.
-6. Enter ```pip install chess```.
-7. Enter ```pip install numpy```.
-8. Enter ```pip install matplotlib```.
-9. Enter ```python main.py```.
+3. Open Terminal in repository folder.
+4. Enter ```pip install chess```.
+5. Enter ```pip install numpy```.
+6. Enter ```pip install matplotlib```.
+7. Enter ```python main.py```.
 
 # Usage
 Run *main.py* via ```python main.py``` in Terminal.

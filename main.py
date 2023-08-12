@@ -10,7 +10,7 @@ def analysis(board, color, label, move):
     node_list = []
     lognode_list = []
 
-    engine = chess.engine.SimpleEngine.popen_uci(r"")
+    engine = chess.engine.SimpleEngine.popen_uci("stockfish-windows-x86-64-avx2.exe")
 
     engine.configure({"Threads": 1,
                       "Hash": 1})
