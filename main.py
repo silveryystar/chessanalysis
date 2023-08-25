@@ -1,14 +1,12 @@
 import chess.engine
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
 
 def analysis(board, color, label, move):
     depth_list = []
     eval_list = []
     node_list = []
-    lognode_list = []
 
     engine = chess.engine.SimpleEngine.popen_uci("stockfish-windows-x86-64-avx2.exe")
 
@@ -31,10 +29,8 @@ def analysis(board, color, label, move):
 
                 nodes = int(i["nodes"])
                 node_list.append(nodes)
-                lognodes = math.log10(nodes)
-                lognode_list.append(lognodes)
 
-                print(f"Depth: {depth} Eval: {eval_reduced} Nodes: {nodes} logNodes: {lognodes}")
+                print(f"Depth: {depth} Eval: {eval_reduced} Nodes: {nodes}")
 
                 if depth == 60:
                     break
@@ -42,11 +38,10 @@ def analysis(board, color, label, move):
     weighted_avg = np.average(eval_list,
                               weights=depth_list)
 
-    print(f"Depths: {depth_list}")
-    print(f"Evals: {eval_list}")
-    print(f"Nodes: {node_list}")
-    print(f"logNodes: {lognode_list}")
-    print(f"Weighted avg: {weighted_avg}")
+    print(f"Depths: {depth_list}\n"
+          f"Evals: {eval_list}\n"
+          f"Nodes: {node_list}\n"
+          f"Weighted avg: {weighted_avg}")
 
     plt.figure(0)
     plt.plot(depth_list,
@@ -67,17 +62,17 @@ def analysis(board, color, label, move):
 
     plt.figure(1)
     plt.plot(depth_list,
-             lognode_list,
+             node_list,
              color=color,
              label=label,
              linestyle="-")
 
     plt.xlabel("Depth")
-    plt.ylabel("logPositions (logNodes)")
-    plt.title(f"logPositions analyzed before and after {move}.")
+    plt.ylabel("Positions (nodes)")
+    plt.title(f"Positions analyzed before and after {move}.")
     plt.legend()
     plt.xlim(1, 60)
-    plt.ylim(0)
+    plt.yscale("log")
 
 
 before_pos = input("Before position: ")

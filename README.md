@@ -1,5 +1,5 @@
 # Chess Analysis Graphing Tool
-This tool plots chess evaluation (centipawns) and logPositions analyzed (logNodes) per unit depth using the chess engine Stockfish.
+This tool plots chess evaluation (centipawns) and positions analyzed (nodes) per unit depth using the chess engine Stockfish.
 
 # Setup
 1. Install Python at https://www.python.org/downloads/.
@@ -20,13 +20,13 @@ After, ```Move:``` will print.
 Enter the move played.
 
 After all information is entered, the code will open Stockfish and analyze the first position entered.
-While analyzing, the code will record and print the evaluation, nodes, and logNodes for each depth reached.
-After reaching a depth of 60, the code will close Stockfish; print lists of all important information; and plot evaluation, a weighted average of evaluation, and logNodes against depth.
+While analyzing, the code will record and print the evaluation, and nodes for each depth reached.
+After reaching a depth of 60, the code will close Stockfish; print lists of all important information; and plot evaluation, a weighted average of evaluation, and positions analyzed against depth.
 The code will then repeat this process for the second position entered.
 After, two graphs will appear, indicating that the code has finished running.
 The user can save these graphs by clicking the "save the figure" icon, the rightmost option located at the bottom left of the figure.
 
-In lines 15 and 16 of the code, ```Threads``` and ```Hash``` are both set to ```1```.
+In lines 13 and 14 of the code, ```Threads``` and ```Hash``` are both set to ```1```.
 Threads are the number of CPU cores Stockfish uses to analyze.
 Increasing threads increases the speed with which Stockfish analyzes.
 However, to generate deterministic results, threads must be set to 1.
@@ -49,7 +49,7 @@ When ```Before position:``` prints, enter the first position recorded, **rnbqkbn
 After, when ```After position:``` prints, enter the second position recorded, **rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1**.
 Finally, when ```Move:``` prints, enter the move played, **1. e2e4**.
 
-Stockfish will analyze the two positions, printing depth, evaluation, nodes, and logNodes information.
+Stockfish will analyze the two positions, printing depth, evaluation, and node information.
 When Stockfish finishes, two graphs will appear.
 These graphs are the results of the analysis, and are titled *Figure_0.png* and *Figure_1.png* in this repository.
 
